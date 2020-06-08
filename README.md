@@ -22,7 +22,7 @@ Construir una app que consiste en un formulario web de contacto accesible desde 
 ## Diseño sugerido
 ![Diseño Sugerido](https://s3.amazonaws.com/makeitreal/images/classroom-prod/c786d483fe65ca3c876af4028c7f9cbd.png "Diseño Sugerido")
 
-# MongoDB
+# MongoDB (Atlas)
 
 ## Configuración
 
@@ -30,12 +30,12 @@ Construir una app que consiste en un formulario web de contacto accesible desde 
 /config/storage.js
 
 ### Parámetros
-|Atributo|Valor inicial|Descripción|
-|--|--|--|
-|host|127.0.0.1|IP o URL del servidor|
-|port|27017|Puerto de escucha|
-|name|contactus_db|Nombre de la base de datos
-
+|Atributo|Descripción|
+|--|--|
+|host|IP o URL del servidor|
+|name|Nombre de la base de datos|
+|user - name|Nombre del usuario|
+|user - pass|Contraseña del usuario|
 
 ## Colecciones
 
