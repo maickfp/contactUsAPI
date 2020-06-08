@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario de Contacto</title>
+        <link rel="icon" type="image/png" href="./img/main/app.png" />
+        <!-- CSS DEGIGN -->
+        <link rel="stylesheet" type="text/css" href="./css/boostrap/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="./css/boostrap/bootstrap-grid.css" />
+        <link rel="stylesheet" type="text/css" href="./css/boostrap/bootstrap-reboot.css" />
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <!-- SCRIPTS -->
+        <script src="./js/jquery/jquery.js"></script>
+        <script src="./js/bootstrap/bootstrap.js"></script>
+        <script src="./js/main.js"></script>
+    </head>
+    <body>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-5 mb-3 p-0">
+                    <h1>Contacto</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper facilisis quam, ac varius leo gravida nec. In dictum fermentum tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent blandit cursus feugiat.</p>
+                    <button type="button" class="btn btn-info" onclick="listMessages()">Mensajes creados</button>
+                </div>
+                <div class="col-md-7 mb-3 border border-info rounded p-3">
+                    <form id="form">
+                        <div class="form-row">
+                            <div class="col-sm-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z]+" required/>
+                                <div class="invalid-feedback">
+                                    El Nombre es obligatorio (Solo se perminen letras)
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Correo" required/>
+                                <div class="invalid-feedback">
+                                    El Correo es obligatorio (Formato válido: name@domain.com)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-6 mb-3">
+                                <input type="tel" class="form-control" placeholder="Teléfono" pattern="[0-9]+" />
+                                <div class="invalid-feedback">
+                                    El Teléfono es inválido (Solo se permiten números)
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <select class="custom-select">
+                                    <option value="">País</option>
+                                    <option value="COL">Colombia</option>
+                                    <option value="USA">USA</option>
+                                    <option value="CAN">Canadá</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 mb-3">
+                                <textarea class="form-control" placeholder="Mensaje" maxlength="1000" onkeyup="updateRemainingCharacterCount(this)" required></textarea>
+                                <div class="remaining-character text-monospace">
+                                    <small>Caracteres restantes: <span class="remaining-character-count">1000</span></small>
+                                </div>
+                                <div class="invalid-feedback">
+                                    El Mensaje es obligatorio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-toolbar justify-content-end">
+                            <button type="button" class="btn btn-primary" onclick="validForm()" >Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="height: 400px;background-color: blue;">
+                    <h1>GOOGLE MAPS</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Messages-->
+        <div class="modal fade" id="modal-messages" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Mensajes creados</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="mb-0">Gabriel David Fernandez Mejia</h5>
+                                    <small class="text-muted">08/06/2020 - 08:36 AM</small>
+                                </div>
+                                <small class="text-muted mb-1">&lt;michael_f2005@hotmail.com&gt;</small>
+                                <p class="mb-1">Mensaje</p>
+                                <div class="text-muted d-flex">
+                                    <small class="flex-fill">Teléfono:</small>
+                                    <small class="flex-fill">País:</small>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="mb-0">Gabriel David Fernandez Mejia</h5>
+                                    <small class="text-muted">08/06/2020 - 08:36 AM</small>
+                                </div>
+                                <small class="text-muted mb-1">&lt;michael_f2005@hotmail.com&gt;</small>
+                                <p class="mb-1">Mensaje</p>
+                                <div class="text-muted d-flex">
+                                    <small class="flex-fill">Teléfono:</small>
+                                    <small class="flex-fill">País:</small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

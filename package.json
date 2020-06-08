@@ -1,0 +1,29 @@
+{
+  "name": "contactusapi",
+  "version": "1.0.0",
+  "description": "Formulario contacUs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maickfp/contactUsAPI.git"
+  },
+  "keywords": [
+    "contact",
+    "contactUs"
+  ],
+  "author": "Michael Fernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maickfp/contactUsAPI/issues"
+  },
+  "homepage": "https://github.com/maickfp/contactUsAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.26.0",
+    "nocache": "^2.1.0",
+    "rotating-file-stream": "^2.1.1"
+  }
+}
