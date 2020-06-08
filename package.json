@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "moment": "^2.26.0",
+    "mongoose": "^5.9.18",
     "nocache": "^2.1.0",
     "rotating-file-stream": "^2.1.1"
   }
