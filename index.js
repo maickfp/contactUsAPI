@@ -21,7 +21,7 @@ app.use(nocache());
 // publicar contenido static
 app.use(express.static('./public'));
 
-// configurar almacenamiento (MongoDB)
+// configurar almacenamiento (MongoDB Atlas)
 storage();
 
 // Iniciar servidor
