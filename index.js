@@ -9,6 +9,8 @@ const log = require('./api/utils/log');
 const config = require('./config');
 // importar storage
 const storage = require('./config/storage');
+// importar api
+const api = require('./api');
 
 // Variables
 const app = express();
@@ -20,6 +22,8 @@ app.use(express.json());
 app.use(nocache());
 // publicar contenido static
 app.use(express.static('./public'));
+// Rutas
+app.use('/api', api);
 
 // configurar almacenamiento (MongoDB Atlas)
 storage();

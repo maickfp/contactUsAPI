@@ -48,3 +48,12 @@ Construir una app que consiste en un formulario web de contacto accesible desde 
 |phone|int|No|Teléfono (Celular)|
 |country|string|No|País|
 |text|string|Si|Mensaje|
+
+## API
+
+### Mensajes
+
+| Endpoint | Método | Descripción |
+| - | - | - | - |
+| /api/messages | GET | Listar mensajes |
+| /api/messages | POST | Crear mensaje |
