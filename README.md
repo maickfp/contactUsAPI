@@ -54,6 +54,6 @@ Construir una app que consiste en un formulario web de contacto accesible desde 
 ### Mensajes
 
 | Endpoint | Método | Descripción |
-| - | - | - | - |
+| - | - | - |
 | /api/messages | GET | Listar mensajes |
 | /api/messages | POST | Crear mensaje |
