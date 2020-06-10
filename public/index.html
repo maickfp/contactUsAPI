@@ -24,51 +24,58 @@
                     <button type="button" class="btn btn-info" onclick="listMessages()">Mensajes creados</button>
                 </div>
                 <div class="col-md-7 mb-3 border border-info rounded p-3">
-                    <form id="form">
-                        <div class="form-row">
-                            <div class="col-sm-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z]+" required/>
-                                <div class="invalid-feedback">
-                                    El Nombre es obligatorio (Solo se perminen letras)
+                    <form id="form" onreset="resetForm(this)" >
+                        <fieldset>
+                            <div class="form-row">
+                                <div class="col-sm-6 mb-3">
+                                    <input id="name" type="text" class="form-control" placeholder="Nombre" pattern="[A-Za-z ]+" required/>
+                                    <div class="invalid-feedback">
+                                        El Nombre es obligatorio (Solo se perminen letras)
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <input id="email" type="email" class="form-control" placeholder="Correo" required/>
+                                    <div class="invalid-feedback">
+                                        El Correo es obligatorio (Formato válido: name@domain.com)
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 mb-3">
-                                <input type="email" class="form-control" placeholder="Correo" required/>
-                                <div class="invalid-feedback">
-                                    El Correo es obligatorio (Formato válido: name@domain.com)
+                            <div class="form-row">
+                                <div class="col-sm-6 mb-3">
+                                    <input id="phone" type="tel" class="form-control" placeholder="Teléfono" pattern="[0-9]+" />
+                                    <div class="invalid-feedback">
+                                        El Teléfono es inválido (Solo se permiten números)
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <select id="country" class="custom-select">
+                                        <option value="">País</option>
+                                        <option value="COL">Colombia</option>
+                                        <option value="USA">USA</option>
+                                        <option value="CAN">Canadá</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-6 mb-3">
-                                <input type="tel" class="form-control" placeholder="Teléfono" pattern="[0-9]+" />
-                                <div class="invalid-feedback">
-                                    El Teléfono es inválido (Solo se permiten números)
+                            <div class="form-row">
+                                <div class="col-sm-12 mb-3">
+                                    <textarea id="text" class="form-control" placeholder="Mensaje" maxlength="1000" onkeyup="updateRemainingCharacterCount(this)" required></textarea>
+                                    <div class="remaining-character text-monospace">
+                                        <small>Caracteres restantes: <span class="remaining-character-count">1000</span></small>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        El Mensaje es obligatorio
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 mb-3">
-                                <select class="custom-select">
-                                    <option value="">País</option>
-                                    <option value="COL">Colombia</option>
-                                    <option value="USA">USA</option>
-                                    <option value="CAN">Canadá</option>
-                                </select>
+                            <div class="btn-toolbar justify-content-end">
+                                <button type="button" class="btn btn-primary" onclick="validForm()" >Enviar</button>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 mb-3">
-                                <textarea class="form-control" placeholder="Mensaje" maxlength="1000" onkeyup="updateRemainingCharacterCount(this)" required></textarea>
-                                <div class="remaining-character text-monospace">
-                                    <small>Caracteres restantes: <span class="remaining-character-count">1000</span></small>
-                                </div>
-                                <div class="invalid-feedback">
-                                    El Mensaje es obligatorio
+                            <div class="position-absolute d-none" id="spinner-form-message">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">Cargando...</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="btn-toolbar justify-content-end">
-                            <button type="button" class="btn btn-primary" onclick="validForm()" >Enviar</button>
-                        </div>
+                        </fieldset>
                     </form>
                 </div>
             </div>
@@ -89,31 +96,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0">Gabriel David Fernandez Mejia</h5>
-                                    <small class="text-muted">08/06/2020 - 08:36 AM</small>
-                                </div>
-                                <small class="text-muted mb-1">&lt;michael_f2005@hotmail.com&gt;</small>
-                                <p class="mb-1">Mensaje</p>
-                                <div class="text-muted d-flex">
-                                    <small class="flex-fill">Teléfono:</small>
-                                    <small class="flex-fill">País:</small>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0">Gabriel David Fernandez Mejia</h5>
-                                    <small class="text-muted">08/06/2020 - 08:36 AM</small>
-                                </div>
-                                <small class="text-muted mb-1">&lt;michael_f2005@hotmail.com&gt;</small>
-                                <p class="mb-1">Mensaje</p>
-                                <div class="text-muted d-flex">
-                                    <small class="flex-fill">Teléfono:</small>
-                                    <small class="flex-fill">País:</small>
-                                </div>
-                            </li>
+                        <div class="text-center" id="spinner-list-messages">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Cargando...</span>
+                            </div>
+                        </div>
+                        <ul class="list-group" id="list-messages">
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -121,6 +109,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- List Notifications -->
+        <div class="position-fixed" id="list-notifications">
         </div>
     </body>
 </html>

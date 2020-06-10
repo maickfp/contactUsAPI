@@ -1,5 +1,7 @@
 // importar mongoose
 const mongoose = require('mongoose');
+// importar moment
+const moment = require('moment');
 // importar modelo Message
 const Message = require('./../../models/message');
 
@@ -15,7 +17,17 @@ const listMessages = (next) => {
             next({
                 est: 1,
                 msg: `OK`,
-                messages
+                messages: messages.map((message) => {
+                    return {
+                        id: message._id,
+                        name: message.name,
+                        email: message.email,
+                        phone: message.phone,
+                        country: message.country,
+                        text: message.text,
+                        createdAt: moment(message.createdAt).format('DD/MM/YYYY hh:mm:ss A')
+                    };
+                })
             })
         }
     });
