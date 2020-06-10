@@ -91,7 +91,7 @@ function addNotificaction(tip, msg) {
     $('#list-notifications').append(
         `<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <img src="./img/main/notification.png" class="rounded mr-2" alt="contactUs" width="30px">
+                <img src="./img/main/notification.gif" class="rounded mr-2" alt="contactUs" width="30px">
                 <strong class="mr-auto">Contacto</strong>
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
